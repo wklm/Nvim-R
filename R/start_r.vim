@@ -1266,8 +1266,8 @@ function SendFileToR(e)
     endif
 
     if filereadable(fpath)
-        call RWarningMsg('Error: cannot create "' . fpath . '" because it already exists. Please, delete it.')
-        return
+    	call delete(fpath)
+    	echo 'Info: The file "' . fpath . '" already existed and was removed.'
     endif
 
     if has("win32")
